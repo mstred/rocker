@@ -1,8 +1,8 @@
-FROM node
+FROM node:alpine
 
 LABEL maintainer="@mstred"
 
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash \
+RUN apk update && apk add yarn --purge \
   && yarn global add create-react-app \
   && create-react-app /tmp/app
 
